@@ -6,6 +6,7 @@ let tempo = document.getElementById('tempo');
 let metronomeOn = 0;
 let metronomeWAIT = null;
 let beat = 1;
+let preloadedCat = null;
 document.addEventListener('DOMContentLoaded', setRandomCatImage)
 async function setRandomCatImage() {
     const catapi_call = await fetch ('https://api.thecatapi.com/v1/images/search')
@@ -15,11 +16,31 @@ async function setRandomCatImage() {
     const img_height = 256
     const image_elem = document.getElementById('randomcat')
     image_elem.src = img_url
-    image_elem.width = img_width
-    image_elem.height = img_height
+}
+// might use that later, will override for now since it lowkey pmo
+document.addEventListener('DOMContentLoaded', () => {
+    setRandomCatImage();
+    preloadCatImage();
+});
+async function preloadCatImage() {
+    const res = await fetch ('https://api.thecatapi.com/v1/images/search');
+    const data = await res.json();
+    const img = new Image();
+    img.src = data[0].url;
+
+    await img.decode();
+    preloadedCat = img
 }
 function strongTick() {
     strongTickSound.cloneNode(true).play();
+    if(preloadedCat) {
+        const image_elem = document.getElementById('randomcat')
+    image_elem.src = preloadedCat.src;
+    image_elem.width = 312;
+    image_elem.height = 256;
+
+    preloadCatImage();
+    }
 }
 function weakTick() {
     weakTickSound.cloneNode(true).play();
@@ -35,7 +56,6 @@ startButton.addEventListener('click', function() {
             switch (beat) {
                 case 1:
                     strongTick();
-                    setRandomCatImage();
                     break;
                 case 3:
                     midTick();
