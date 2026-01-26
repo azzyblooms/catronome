@@ -12,10 +12,10 @@ async function setRandomCatImage() {
     const catapi_call = await fetch ('https://api.thecatapi.com/v1/images/search')
     const catapi_json = await catapi_call.json()
     const img_url = catapi_json[0].url
-    const img_width = 312
-    const img_height = 256
     const image_elem = document.getElementById('randomcat')
     image_elem.src = img_url
+    image_elem.height = 256
+    image_elem.width = 312
 }
 // might use that later, will override for now since it lowkey pmo
 document.addEventListener('DOMContentLoaded', () => {
