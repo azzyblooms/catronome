@@ -1,11 +1,8 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-const tickSound = new Audio('audio/ding.mp3');
-
+const tickSound = new Audio('audio/meow.mp3');
 function tick() {
-    tickSound.play();
+    tickSound.cloneNode(true).play();
 }
-window.onload = function() {
-    console.log("SUCCESS");
-    tick();
-}
-}); 
+document.addEventListener('click', function() {
+tick();
+console.log("SUCCESS");
+});
