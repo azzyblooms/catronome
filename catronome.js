@@ -2,6 +2,7 @@ const strongTickSound = new Audio('audio/meow.mp3');
 const midTickSound = new Audio('audio/midhit.mp3');
 const weakTickSound = new Audio('audio/weakhit.mp3');
 const startButton = document.getElementById('startButton');
+const timeSignature = document.getElementById('ts');
 let tempo = document.getElementById('tempo');
 let metronomeOn = 0;
 let metronomeWAIT = null;
@@ -22,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setRandomCatImage();
     preloadCatImage();
 });
+timeSignature.addEventListener('change', () => {
+    if(metronomeOn === 1) {
+        beat = 1;
+        pulseLength();
+    }
+})
 async function preloadCatImage() {
     const res = await fetch ('https://api.thecatapi.com/v1/images/search');
     const data = await res.json();
@@ -49,10 +56,13 @@ function weakTick() {
 function midTick() {
     midTickSound.cloneNode(true).play();
 }
-startButton.addEventListener('click', function() {
-    metronomeOn = (metronomeOn === 1) ? 0 : 1;
-    console.log("TOGGLED " + metronomeOn);
+function pulseLength() {
+    clearInterval(metronomeWAIT);
+    if(timeSignature.value == ("6/8")) {metronomeWAIT = setInterval(playTick, 30000 / tempo.value)}
+    else {metronomeWAIT = setInterval(playTick, 60000 / tempo.value);}
+}
     function playTick() {
+        if(timeSignature.value === ("1/4") || timeSignature.value === ("4/4")) {
             switch (beat) {
                 case 1:
                     strongTick();
@@ -67,9 +77,58 @@ startButton.addEventListener('click', function() {
                     weakTick();
                 break;
             }
-                beat++;
-                if(beat > 4) beat = 1;
+            }
+        else if(timeSignature.value == ("6/8")) {
+                        switch (beat) {
+                case 1:
+                    strongTick();
+                    break;
+                case 4:
+                    midTick();
+                    break;
+                case 2:
+                    weakTick();
+                    break;
+                case 3:
+                    weakTick();
+                    break;
+                case 5:
+                    weakTick();
+                    break;
+                case 6:
+                    weakTick();
+                    break;
+                        }
         }
+            else{
+            switch (beat) {
+                case 1:
+                    strongTick();
+                    break;
+                case 3:
+                    weakTick();
+                    break;
+                case 2:
+                    weakTick();
+                    break;
+                case 4:
+                    weakTick();
+                break;
+                case 5:
+                    weakTick();
+                break;
+            }
+            }
+                if(timeSignature.value !== ("1/4")) {beat++;}
+                if(timeSignature.value == ("4/4")) {if(beat > 4) beat = 1;}
+                else if(timeSignature.value == ("3/4")) {if(beat > 3) beat = 1;}
+                else if(timeSignature.value == ("5/4")) {if(beat > 5) beat = 1;}
+                else if(timeSignature.value == ("6/8")) {if(beat > 6) beat = 1;}
+
+        }
+startButton.addEventListener('click', function() {
+    metronomeOn = (metronomeOn === 1) ? 0 : 1;
+    console.log("TOGGLED " + metronomeOn);
         if(metronomeOn == 1) {
         if(tempo.value > 400) {
             tempo.value = 400;
@@ -79,7 +138,7 @@ startButton.addEventListener('click', function() {
         }
     playTick();
     console.log(beat);
-    metronomeWAIT = setInterval(playTick, 60000 / tempo.value);
+    pulseLength();
 } else {
     clearInterval(metronomeWAIT);
     metronomeWAIT = null;
