@@ -3,6 +3,8 @@ const midTickSound = new Audio('audio/midhit.mp3');
 const weakTickSound = new Audio('audio/weakhit.mp3');
 const startButton = document.getElementById('startButton');
 const timeSignature = document.getElementById('ts');
+const hoverSound = new Audio('audio/hover.wav');
+const blip = new Audio('audio/blip.mp3');
 let tempo = document.getElementById('tempo');
 let metronomeOn = 0;
 let metronomeWAIT = null;
@@ -25,10 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 timeSignature.addEventListener('change', () => {
     timeSignature.blur();
+    blip.play();
     if(metronomeOn === 1) {
         beat = 1;
         pulseLength();
     }
+})
+startButton.addEventListener('mouseenter', () => {
+    hoverSound.play();
 })
 async function preloadCatImage() {
     const res = await fetch ('https://api.thecatapi.com/v1/images/search');
@@ -128,6 +134,7 @@ function pulseLength() {
 
         }
 startButton.addEventListener('click', function() {
+    blip.play();
     metronomeOn = (metronomeOn === 1) ? 0 : 1;
     console.log("TOGGLED " + metronomeOn);
         if(metronomeOn == 1) {

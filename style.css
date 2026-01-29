@@ -19,8 +19,9 @@ body {
 
 #startButton:active {
     background: #d86a75;
-    padding: 1px;
-    font-size: 20px;
+}
+#startButton {
+    transition: transform ease 50ms;
 }
 
 .interface {
@@ -61,7 +62,7 @@ body {
     background-color:#d86a75;
 }
 #startButton:hover {
-    background-color:#d86a75;
+    transform:scale(1.1);
 }
 #title {
     background-color:#f57682;
