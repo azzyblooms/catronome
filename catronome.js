@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadCatImage();
 });
 timeSignature.addEventListener('change', () => {
+    timeSignature.blur();
     if(metronomeOn === 1) {
         beat = 1;
         pulseLength();
