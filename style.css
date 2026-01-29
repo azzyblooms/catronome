@@ -1,1 +1,81 @@
-body {text-align:  center; font-family: cursive; background-color: #f54257; font-size: x-large; color: white;}
+body {
+    text-align:  center; 
+    font-family: cursive;
+    background-color: #f54257; 
+    font-size: x-large; 
+    color: white;
+    margin: 0;
+}
+#tempolabel {
+    padding-left: 3px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-right: 0px;
+}
+
+#tempo {
+    border-left: 0px;
+}
+
+#startButton:active {
+    background: #d86a75;
+    padding: 1px;
+    font-size: 20px;
+}
+
+.interface {
+    font-size: 19px;
+    font-family: cursive;
+    background-color:#f57682;
+    border: 2px solid #fff;
+    color: #fff;
+}
+#tstext {
+    padding-left: 3px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-right: 0px;
+}
+#ts {
+    border-left: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 5px;
+    padding-left: 4px;
+
+}
+#ts:focus {
+    background-color:#d86a75;
+    border-bottom: 0px;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+}
+#ts:hover {
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    background-color:#d86a75;
+}
+#startButton:hover {
+    background-color:#d86a75;
+}
+#title {
+    background-color:#f57682;
+    border: 5px solid #fff;
+    border-left: 0px;
+    border-right: 0px;
+    width: 100vw;
+    transform: translateY(-40px);
+    padding-top: 5px;
+}
+#startButton {
+    font-size:30px;
+    border: 2px solid #fff;
+}
+#randomcat {
+    border: 5px solid #fff;
+}
