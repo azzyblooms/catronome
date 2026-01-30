@@ -79,4 +79,45 @@ body {
 }
 #randomcat {
     border: 5px solid #fff;
+    transition: ease 50ms;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+#randomcat:hover {
+    transform:scale(1.05);
+}
+#randomcat:active {
+    border-color: #ddd;
+
+}
+.button:hover {
+    transform:scale(1.05);
+}
+.button {
+    transition: ease 50ms;
+    width: 140px
+}
+.button:active {
+    background-color:#d86a75;
+}
+#buttonbox {
+    border:2px solid #fff;
+    width: 144px;
+    margin: auto;
+    padding-bottom:2px;
+}
+#coolline {
+    border: 1px solid #fff;
+    inline-size: 50px;
+    position: absolute;
+    transform: translateY(60px) translateX(257px);
+}
+#chooseSound {
+    position:absolute;
+    padding-left: 3px;
+    padding-top:1px;
+    padding-bottom:1px;
+    padding-right: 3px;
+    transform:translateY(53px) translateX(-351px);
+    font-size: 24px;
 }

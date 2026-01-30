@@ -1,10 +1,17 @@
-const strongTickSound = new Audio('audio/meow.mp3');
+let strongTickSound = new Audio('audio/meow.mp3');
 const midTickSound = new Audio('audio/midhit.mp3');
 const weakTickSound = new Audio('audio/weakhit.mp3');
 const startButton = document.getElementById('startButton');
 const timeSignature = document.getElementById('ts');
 const hoverSound = new Audio('audio/hover.wav');
 const blip = new Audio('audio/blip.mp3');
+const keys = new Audio('audio/keyclick.mp3');
+const catImage = document.getElementById('randomcat');
+const minecraft = document.getElementById('minecraft');
+const chadmeow = document.getElementById('chadmeow');
+const doorboy = document.getElementById('doorboy');
+const scratch = document.getElementById('scratch');
+const hoverable = document.querySelectorAll('.interactive');
 let tempo = document.getElementById('tempo');
 let metronomeOn = 0;
 let metronomeWAIT = null;
@@ -24,7 +31,7 @@ async function setRandomCatImage() {
 document.addEventListener('DOMContentLoaded', () => {
     setRandomCatImage();
     preloadCatImage();
-});
+})
 timeSignature.addEventListener('change', () => {
     timeSignature.blur();
     blip.play();
@@ -33,8 +40,47 @@ timeSignature.addEventListener('change', () => {
         pulseLength();
     }
 })
-startButton.addEventListener('mouseenter', () => {
-    hoverSound.play();
+minecraft.addEventListener('click', () => {
+    blip.play();
+    strongTickSound = new Audio('audio/minecraftcat.mp3');
+})
+chadmeow.addEventListener('click', () => {
+    blip.play();
+    strongTickSound = new Audio('audio/meow.mp3');
+})
+doorboy.addEventListener('click', () => {
+    blip.play();
+    strongTickSound = new Audio('audio/doorboy.mp3');
+})
+scratch.addEventListener('click', () => {
+    blip.play();
+    strongTickSound = new Audio('audio/scratch.mp3');
+})
+hoverable.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        hoverSound.cloneNode(true).play();
+    })
+})
+catImage.addEventListener('click', () => {
+    strongTickSound.cloneNode(true).play();
+})
+tempo.addEventListener('change', () => {
+    if(metronomeOn == 1) {
+        if(tempo.value > 400) {
+            tempo.value = 400;
+        }
+        if(tempo.value < 30) {
+            tempo.value = 30;
+        }
+    }
+    blip.play();
+        if(metronomeOn === 1) {
+        beat = 1;
+        pulseLength();
+    }
+})
+tempo.addEventListener('keydown', () => {
+    keys.cloneNode(true).play();
 })
 async function preloadCatImage() {
     const res = await fetch ('https://api.thecatapi.com/v1/images/search');
