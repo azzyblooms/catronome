@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1 id="title">CATRONOME</h1>
+        <h1 id="title">☆ ≽^•⩊•^≼ CATRONOME ≽^•⩊•^≼ ☆</h1>
         <label for="tempo" id="tempolabel" class="interface">tempo: </label>
         <input type="number" id="tempo" class ="interface" name="tempo" min="30" max="400" step="0.5" value="120">
                 <label for="Time Signature" id="tstext" class="interface">select time signature: </label>
@@ -18,20 +18,24 @@
         <p></p>
         <button id="startButton" class="interface interactive">start metronome!</button>
         <p></p>
-        <label id="chooseSound" class="interface">choose your sound!</label>
-        <hr id="coolline">
-        <div id="buttonbox">
-                <button id="chadmeow" class="interface button interactive">chad meow</button>
-            <div></div>
-                <button id="scratch" class="interface button interactive">scratch cat</button>
-            <div></div>
-                <button id="minecraft" class="interface button interactive">minecraft cat</button>
-            <div></div>
-                <button id="doorboy" class="interface button interactive">doorbell cat</button>
+        <div id="soundSettings">
+            <label id="chooseSound" class="interface"> <img alt="icon"id="funnycat" src="images/cat.png"/>choose your sound!</label>
+            <div id="buttonbox">
+                <button id="chadmeow" class="interface button interactive"><img id=chad src="images/chad.png">chad meow</button>
+                <button id="scratch" class="interface button interactive"><img id=scratch src="images/scratch.png">scratch cat</button>
+                <button id="minecraft" class="interface button interactive"><img id=minecraftcat src="images/minecraft.png">minecraft cat</button>
+                <button id="doorboy" class="interface button interactive"><img id=doorboy src="images/doorboy.png">doorbell cat</button>
+                <button id="nosound" class="interface button interactive">none :(</button>
+            </div>
+            <div id="volumeSettings">
+                <input type="range" id="volumeSlider" min="0" max="100" value="50" name="volumeSlider">
+                <label for="volume" id="volumeText" class="interface">volume:<br></label>
+            </div>
         </div>
         <p></p>
         <img id="randomcat" class="interactive" src="images/test.png" />
         <div></div>
+        <p>ts metronome so cat!!!!</p>
         <script src="catronome.js"></script>
     </body>
 </html>

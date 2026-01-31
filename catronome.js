@@ -1,5 +1,6 @@
 let strongTickSound = new Audio('audio/meow.mp3');
 const midTickSound = new Audio('audio/midhit.mp3');
+const superMid = new Audio('audio/stronghit.mp3')
 const weakTickSound = new Audio('audio/weakhit.mp3');
 const startButton = document.getElementById('startButton');
 const timeSignature = document.getElementById('ts');
@@ -11,7 +12,9 @@ const minecraft = document.getElementById('minecraft');
 const chadmeow = document.getElementById('chadmeow');
 const doorboy = document.getElementById('doorboy');
 const scratch = document.getElementById('scratch');
+const nosound = document.getElementById('nosound');
 const hoverable = document.querySelectorAll('.interactive');
+const meowVolumeSlider = document.getElementById('volumeSlider');
 let tempo = document.getElementById('tempo');
 let metronomeOn = 0;
 let metronomeWAIT = null;
@@ -47,6 +50,10 @@ minecraft.addEventListener('click', () => {
 chadmeow.addEventListener('click', () => {
     blip.play();
     strongTickSound = new Audio('audio/meow.mp3');
+})
+nosound.addEventListener('click', () => {
+    blip.play();
+    strongTickSound = new Audio('audio/stronghit.mp3');
 })
 doorboy.addEventListener('click', () => {
     blip.play();
@@ -92,7 +99,9 @@ async function preloadCatImage() {
     preloadedCat = img
 }
 function strongTick() {
-    strongTickSound.cloneNode(true).play();
+    const strongTickClone = strongTickSound.cloneNode(true);
+    strongTickClone.volume = meowVolumeSlider.value / 100;
+    strongTickClone.play();
     if(preloadedCat) {
         const image_elem = document.getElementById('randomcat')
     image_elem.src = preloadedCat.src;

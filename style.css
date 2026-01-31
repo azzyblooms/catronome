@@ -76,12 +76,15 @@ body {
 #startButton {
     font-size:30px;
     border: 2px solid #fff;
+    cursor:pointer;
+    border-radius:4px;
 }
 #randomcat {
     border: 5px solid #fff;
     transition: ease 50ms;
     user-select: none;
     -webkit-user-drag: none;
+    cursor:pointer;
 }
 #randomcat:hover {
     transform:scale(1.05);
@@ -95,29 +98,82 @@ body {
 }
 .button {
     transition: ease 50ms;
-    width: 140px
+    width: 164px;
+    cursor:pointer;
+    border-radius:4px;
 }
 .button:active {
     background-color:#d86a75;
 }
-#buttonbox {
-    border:2px solid #fff;
-    width: 144px;
-    margin: auto;
-    padding-bottom:2px;
+#volumeSlider {
+    -webkit-appearance:none;
+    appearance:none;
+    outline:none;
+    writing-mode:sideways-lr;
+    border-radius:4px;
+    border: 2px solid white;
+    accent-color: #f57682;
+    background-color: #ffffff;
+
 }
-#coolline {
-    border: 1px solid #fff;
-    inline-size: 50px;
-    position: absolute;
-    transform: translateY(60px) translateX(257px);
+#volumeSlider::-webkit-file-upload-button:hover {
+    transform:scale(1.05);
+}
+.button img {
+    height: 21px;
+    width: auto;
+    padding-right: 4px;
+    transform: translateY(2px);
 }
 #chooseSound {
-    position:absolute;
     padding-left: 3px;
     padding-top:1px;
     padding-bottom:1px;
     padding-right: 3px;
-    transform:translateY(53px) translateX(-351px);
     font-size: 24px;
+    display:flex;
+    align-items: center;
+    height:40px;
+    position:absolute;
+    right:50%;
+    transform: translateX(-43%);
+}
+
+#chooseSound img {
+    height: 33px;
+    width: auto;
+    padding-right: 7px;
+}
+#buttonbox {
+    border:2px solid #fff;
+    width: 166px;
+    justify-self: center;
+    padding:2px;
+    padding-right:0px;
+    display:flex;
+    flex-direction:column;
+    gap: 2px;
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#soundSettings {
+    display:flex;
+    position:relative;
+    align-items:center;
+    gap: 20px;
+    justify-content: center;
+    height:180px;
+}
+#volumeSettings {
+    position:absolute;
+    left:50%;
+    transform: translateX(150%);
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+#volumeText {
+    padding-left: 2px;
+    padding-right: 2px;
 }
