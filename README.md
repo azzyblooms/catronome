@@ -8,5 +8,5 @@ that's all there is to it, really. have fun!
 <div align="center">
     <img src="https://cdn.hackclub.com/019c15aa-6af2-7359-8c91-2ef48ee2bd37/untitled83_20260119235239.png" 
          alt="SUPPORT NON BINARY YOUTH IN CODE! ENBIES BELONG IN ATHENA!" 
-         style="width: 100%;">
+         style="width: 128;">
 </div>
