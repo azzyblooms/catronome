@@ -1,8 +1,8 @@
 <h1>CATRONOME!!!!!!</h1>
-it's a metronome...... with silly cats!
-to be more specific, it shows a random cat image whenever the metronome reaches a strong beat.
-you can also customize the metronome with 5 different sounds, 5 different time signatures, and a volume slider! (note that the volume only affects the strong beat)
-the metronome supports tempos between 30BPM and 400BPM (but be realistic, when are you gonna need something slower/faster than that?)
+it's a metronome...... with silly cats! <br>
+to be more specific, it shows a random cat image whenever the metronome reaches a strong beat. <br>
+you can also customize the metronome with 5 different sounds, 5 different time signatures, and a volume slider! (note that the volume only affects the strong beat) <br>
+the metronome supports tempos between 30BPM and 400BPM (but be realistic, when are you gonna need something slower/faster than that?) <br> <br>
 that's all there is to it, really. have fun!
 
 
